@@ -1,0 +1,32 @@
+# 연습용  컴퓨터 시계 만들기
+
+from tkinter import*
+import time
+
+def dclock():
+        r_time = time.strftime("%H:%M:%S")
+        computer_frame.config(text = r_time, font = ("돋움체", 60, "bold"), fg = "#000000")
+        computer_frame.after(200, dclock)
+
+computer_window = Tk()
+computer_window.title("Digital_Clock.py")
+computer_window.config(background = "#F5FFFA")
+computer_window.resizable(False, False)
+
+computer_blank_top = Frame(computer_window, width = 500, height = 15, bg = "#ffffff")
+computer_blank_top.pack()
+
+computer_frame = LabelFrame(computer_window, width = 350, height = 120, bd = 0,bg = "#F5FFFA")
+computer_frame.pack()
+
+computer_button = Button(computer_window, text = "닫기", width = 20, cursor = "hand2", command = computer_window.destroy)
+computer_button.pack() 
+
+
+computer_blank_bottom = Frame(computer_window, width = 400, height = 10, bg = "#778899")
+computer_blank_bottom.pack()
+
+
+dclock()
+
+computer_window.mainloop()
